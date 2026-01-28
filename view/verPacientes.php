@@ -16,7 +16,7 @@ require("../model/pacientes.php");
 <body>
     <h1>Lista de pacientes</h1>
         <div>
-            <a><button>Agregar Paciente</button></a>
+            <a href="./crearPacientes.php"><button>Agregar Paciente</button></a>
             <a><button>Modificar Paciente</button></a>
             <a><button>Eliminar Paciente</button></a>
         </div>
