@@ -13,7 +13,7 @@ Actualmente permite **ver, crear, modificar y eliminar pacientes**, aunque el fo
 - **Crear, Actualizar y eliminar pacientes:** se implementó en el backend, pero todavía no está conectado al frontend.  
 - **Conexión a la base de datos:** se creó un archivo `conexion.php` usando PDO.
 
-- **Contenido dinamico en formulario usando Javascript:** el formulario acepta contenido dinamico mediante javascript, si se modifica algo a futuro y se adapta a nodejs solo tendria que cambiar unas cosas.
+- **Contenido dinamico en formulario usando PHP y SQL queries:** el formulario acepta contenido dinamico mediante queries y PHP, si se modifica (agregan, eliminan, modifican) los datos de la bd se actualizara automaticamente.
 
 
 

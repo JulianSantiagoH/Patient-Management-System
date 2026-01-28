@@ -1,3 +1,21 @@
+<?php
+    include_once("../model/conexion.php");
+    ini_set('display_errors', 1);
+    error_reporting(E_ALL);
+    $conexion = conexion();
+
+    $sql = "SELECT id,nombre from departamentos";
+    $stmt = $conexion->prepare($sql);
+    $stmt->execute();
+    $departamentos = $stmt->fetchALL(PDO::FETCH_ASSOC);
+
+    $sql2= "SELECT id,departamento_id,nombre from municipios";
+    $stmt2 = $conexion->prepare($sql2);
+    $stmt2->execute();
+    $municipios = $stmt2->fetchALL(PDO::FETCH_ASSOC);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,10 +59,17 @@
 
             <label for="departamento">Departamento</label>
             <select name="departamento" id="selectDepartamentos" required>
+                <?php foreach($departamentos as $d) {?>
+                    <option value="<?=$d['id']?>"><?= $d['nombre']?></option>
+                <?php } ?>
             </select>
 
             <label for="municipio">Municipio</label>
-            <select name="municipio" id="selectMunicipios" required></select>
+            <select name="municipio" id="selectMunicipios" required>
+                <?php foreach($municipios as $m) {?>
+                    <option value="<?=$m['departamento_id']?>"><?= $m['nombre']?></option>
+                <?php } ?>
+            </select>
 
             <label for="correo">Correo Electronico</label>
             <input type="email" name="correo" required>
@@ -53,8 +78,6 @@
             <input type="file" name="file">
         </form>
     </div>
-
-    <script src="js/crearPacientes.js"></script>
 </body>
 
 </html>
