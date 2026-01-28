@@ -1,16 +1,5 @@
 <?php
 include_once("model/conexion.php");
-echo "CONEXION OK";
-
-$con = conexion();
-$sql="SELECT * FROM departamentos";
-$stmt = $con->prepare($sql);
-$stmt->execute();
-$departamentos = $stmt->fetchAll(PDO::FETCH_ASSOC);
-foreach ($departamentos as $d) {
-    echo "Departamento: " . $d['nombre'] . "<br>";
-}
-
 
 ?>
 
@@ -22,6 +11,12 @@ foreach ($departamentos as $d) {
     <title>Document</title>
 </head>
 <body>
-    
+    <h1>Bienvenido al Sistema de Gestion de Pacientes</h1>
+    <div>
+        <div>
+            <h2>Ver pacientes</h2>
+            <a href="view/verPacientes.php"><button>click Aqui</button></a>
+        </div>
+    </div>
 </body>
 </html>
